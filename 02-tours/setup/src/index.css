@@ -175,3 +175,8 @@ button:hover {
   transform: translateX(-50%);
   bottom: -25px;
 }
+
+.showToursAgain {
+  margin: 0 auto;
+  display: block;
+}

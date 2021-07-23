@@ -56,7 +56,9 @@ function App() {
     return <h1>ERROR !!!</h1>;
   }
 
-  return <Tours tours={tours} handleDelete={handleDelete} />;
+  return (
+    <Tours tours={tours} handleDelete={handleDelete} fetchData={fetchData} />
+  );
 }
 
 export default App;

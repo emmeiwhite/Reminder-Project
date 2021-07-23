@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Tour.css";
 
 const Tour = ({ id, name, info, image, price, handleDelete }) => {
