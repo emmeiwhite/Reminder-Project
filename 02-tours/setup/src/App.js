@@ -16,6 +16,7 @@ function App() {
   };
 
   const fetchData = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch(url);
       const data = await response.json();

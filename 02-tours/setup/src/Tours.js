@@ -4,7 +4,7 @@ const Tours = ({ tours, handleDelete, fetchData }) => {
   return (
     <main className="toursWrapper">
       <h1 className="heading">
-        {tours.length > 0 ? "Our Tours" : "See Tours"}
+        {tours.length > 0 ? "Our Tours" : "No Tours Left"}
       </h1>
       {tours.length <= 0 ? (
         <button className="showToursAgain" onClick={fetchData}>
