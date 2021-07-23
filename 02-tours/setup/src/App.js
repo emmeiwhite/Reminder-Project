@@ -10,14 +10,43 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
+  const handleDelete = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  };
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setIsLoading(false);
+      setTours(data);
+    } catch (e) {
+      setIsError(true);
+    }
+  };
+
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((response) => {
+  //       console.log(response);
+  //       if (response.status >= 200 && response.status < 299) {
+  //         return response.json();
+  //       } else {
+  //         setIsError(true);
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log("My Data is:");
+  //       console.log(data);
+  //       setIsLoading(false);
+  //       setTours(data);
+  //     });
+  // }, []);
+
   useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setIsLoading(false);
-        setTours(data);
-      });
-  }, [tours]);
+    fetchData();
+  }, []);
 
   if (isLoading) {
     return <Loading />;
@@ -27,7 +56,7 @@ function App() {
     return <h1>ERROR !!!</h1>;
   }
 
-  return <Tours />;
+  return <Tours tours={tours} handleDelete={handleDelete} />;
 }
 
 export default App;
