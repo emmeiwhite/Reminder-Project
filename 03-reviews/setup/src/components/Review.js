@@ -1,6 +1,14 @@
 import React from "react";
 
-const Review = ({ id, name, job, image, text, filterPerson }) => {
+const Review = ({
+  id,
+  name,
+  job,
+  image,
+  text,
+  filterPerson,
+  handleSurpriseClick,
+}) => {
   console.log(id);
   return (
     <article className="cardWrapper">
@@ -25,7 +33,9 @@ const Review = ({ id, name, job, image, text, filterPerson }) => {
           {">"}
         </span>
       </div>
-      <button className="surpriseBtn">Surprise Me</button>
+      <button className="surpriseBtn" onClick={handleSurpriseClick}>
+        Surprise Me
+      </button>
     </article>
   );
 };

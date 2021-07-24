@@ -8,6 +8,12 @@ function App() {
   const [persons, setPersons] = useState(reviews);
   const [selectedPerson, setSelectedPerson] = useState(persons[0]);
 
+  const handleSurpriseClick = () => {
+    const randomId = Math.floor(Math.random() * persons.length);
+    const currentPerson = persons.filter((person) => person.id === randomId);
+    setSelectedPerson(currentPerson[0]);
+  };
+
   const filterPerson = (id, selection) => {
     console.log(id, selection);
     let currentId;
@@ -33,7 +39,11 @@ function App() {
 
   return (
     <main>
-      <Review {...selectedPerson} filterPerson={filterPerson} />
+      <Review
+        {...selectedPerson}
+        filterPerson={filterPerson}
+        handleSurpriseClick={handleSurpriseClick}
+      />
     </main>
   );
 }
